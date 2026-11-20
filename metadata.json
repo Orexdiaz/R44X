@@ -1,0 +1,6 @@
+{
+  "name": "R44X Topluluk Portalı",
+  "description": "R44X Discord topluluk sunucusu için resmi tanıtım, canlı istatistikler, kurallar ve yetkili/partnerlik başvuru portalı.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

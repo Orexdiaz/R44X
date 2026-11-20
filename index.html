@@ -1,0 +1,1971 @@
+<!doctype html>
+<html lang="tr" class="scroll-smooth dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>R44X — Topluluk Tanıtım &amp; Başvuru Portalı</title>
+    <meta
+      name="description"
+      content="R44X Discord topluluk sunucusu resmi portalı: canlı üye istatistikleri, sunucu kuralları, yönetim kadrosu, partnerlik şartları ve başvuru sistemi."
+    />
+    <meta property="og:title" content="R44X — Topluluk Tanıtım &amp; Başvuru Portalı" />
+    <meta
+      property="og:description"
+      content="R44X Discord topluluğuna katıl, canlı sunucu durumunu incele, yetkili ekibi veya partnerlik başvurunu tek tıkla gönder."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/webp" href="/assets/aistudio/a7439ce5-66ef-46cc-80e7-4a68f50cbe3c_d74dc5d2.webp" />
+
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+              mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+            },
+            colors: {
+              night: {
+                950: '#050811',
+                900: '#090e1d',
+                850: '#0d1428',
+                800: '#131c36',
+              },
+              neon: {
+                purple: '#8b5cf6',
+                ice: '#38bdf8',
+                gold: '#fbbf24',
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+
+      body {
+        background-color: #050811;
+        color: #e2e8f0;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        overflow-x: hidden;
+      }
+
+      /* Snowy Night Atmospheric Backdrops */
+      .aurora-bg {
+        background:
+          radial-gradient(60% 45% at 15% 8%, rgba(139, 92, 246, 0.16) 0%, transparent 70%),
+          radial-gradient(50% 40% at 85% 14%, rgba(56, 189, 248, 0.14) 0%, transparent 70%),
+          radial-gradient(45% 40% at 50% 90%, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
+      }
+
+      .glass-panel {
+        background: linear-gradient(155deg, rgba(16, 24, 46, 0.72), rgba(9, 14, 29, 0.82));
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border: 1px solid rgba(148, 163, 184, 0.14);
+        box-shadow:
+          0 20px 50px -20px rgba(0, 0, 0, 0.75),
+          inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+      }
+
+      .glass-panel-hover {
+        transition:
+          transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
+          border-color 180ms cubic-bezier(0.16, 1, 0.3, 1),
+          box-shadow 180ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .glass-panel-hover:hover {
+        transform: translateY(-2px);
+        border-color: rgba(56, 189, 248, 0.35);
+        box-shadow:
+          0 24px 60px -20px rgba(56, 189, 248, 0.18),
+          inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+      }
+
+      .neon-text-gradient {
+        background: linear-gradient(120deg, #ffffff 10%, #38bdf8 55%, #8b5cf6 95%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .neon-wordmark {
+        text-shadow:
+          0 0 18px rgba(139, 92, 246, 0.55),
+          0 0 34px rgba(56, 189, 248, 0.35);
+      }
+
+      .crown-card-glow {
+        background: linear-gradient(150deg, rgba(25, 21, 16, 0.85), rgba(11, 15, 31, 0.92));
+        border: 1px solid rgba(251, 191, 36, 0.4);
+        box-shadow:
+          0 0 42px -12px rgba(251, 191, 36, 0.25),
+          0 20px 50px -20px rgba(0, 0, 0, 0.8),
+          inset 0 1px 0 0 rgba(251, 191, 36, 0.2);
+      }
+
+      .btn-neon-primary {
+        background: linear-gradient(135deg, #8b5cf6 0%, #38bdf8 100%);
+        box-shadow:
+          0 0 24px -4px rgba(139, 92, 246, 0.55),
+          0 8px 20px -6px rgba(56, 189, 248, 0.4);
+        transition:
+          transform 160ms cubic-bezier(0.16, 1, 0.3, 1),
+          box-shadow 160ms cubic-bezier(0.16, 1, 0.3, 1),
+          filter 160ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .btn-neon-primary:hover {
+        transform: translateY(-1px);
+        filter: brightness(1.08);
+        box-shadow:
+          0 0 32px -2px rgba(139, 92, 246, 0.72),
+          0 10px 26px -6px rgba(56, 189, 248, 0.52);
+      }
+
+      .btn-neon-primary:active {
+        transform: translateY(0);
+      }
+
+      .nav-link-underline {
+        position: relative;
+      }
+
+      .nav-link-underline::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -4px;
+        height: 2px;
+        border-radius: 9999px;
+        background: linear-gradient(90deg, #38bdf8, #8b5cf6);
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .nav-link-underline:hover::after,
+      .nav-link-underline:focus-visible::after {
+        transform: scaleX(1);
+      }
+
+      .tabular-nums {
+        font-variant-numeric: tabular-nums;
+      }
+
+      /* Snowfall Canvas */
+      #snow-canvas {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #050811;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(139, 92, 246, 0.35);
+        border-radius: 9999px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(56, 189, 248, 0.55);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        #snow-canvas {
+          display: none;
+        }
+        .glass-panel-hover,
+        .btn-neon-primary {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-[#050811] text-slate-200 antialiased selection:bg-neon-purple/35 selection:text-white">
+    <!-- Ambient Snowy Night Layers -->
+    <div class="aurora-bg fixed inset-0 pointer-events-none z-0" aria-hidden="true"></div>
+    <canvas id="snow-canvas" aria-hidden="true"></canvas>
+
+    <!-- Main Wrapper -->
+    <div class="relative z-10 min-h-screen flex flex-col">
+      <!-- NAVBAR -->
+      <header
+        id="navbar"
+        class="sticky top-0 z-50 border-b border-slate-800/70 bg-[#050811]/80 backdrop-blur-xl"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-[72px] flex items-center justify-between gap-4 lg:gap-8">
+          <!-- Left: Circular Logo + Neon R44X -->
+          <a
+            href="#ana-sayfa"
+            class="flex items-center gap-3 shrink-0 group focus:outline-none focus-visible:ring-2 focus-visible:ring-neon-ice rounded-lg pr-1"
+          >
+            <div
+              class="relative w-10 h-10 rounded-full p-[2px] bg-gradient-to-tr from-neon-purple via-neon-ice to-neon-purple shadow-[0_0_18px_rgba(139,92,246,0.45)] shrink-0"
+            >
+              <div class="w-full h-full rounded-full overflow-hidden bg-night-950 flex items-center justify-center">
+                <img
+                  id="nav-logo-img"
+                  src="/assets/aistudio/a7439ce5-66ef-46cc-80e7-4a68f50cbe3c_d74dc5d2.webp"
+                  alt="R44X Sunucu Logosu"
+                  referrerpolicy="no-referrer"
+                  class="w-full h-full object-cover"
+                  onerror="this.classList.add('hidden'); document.getElementById('nav-logo-fallback').classList.remove('hidden');"
+                />
+                <div
+                  id="nav-logo-fallback"
+                  class="hidden w-full h-full flex items-center justify-center bg-gradient-to-br from-night-850 to-night-950 text-xs font-mono font-bold tracking-tighter text-neon-ice"
+                >
+                  R44X
+                </div>
+              </div>
+            </div>
+            <span class="text-xl font-extrabold tracking-tight text-white neon-wordmark whitespace-nowrap">
+              R44X
+            </span>
+          </a>
+
+          <!-- Center: Navigation Links -->
+          <nav
+            aria-label="Ana Navigasyon"
+            class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-slate-300"
+          >
+            <a
+              href="#ana-sayfa"
+              class="nav-link-underline hover:text-white transition-colors whitespace-nowrap shrink-0 py-1"
+              >Ana Sayfa</a
+            >
+            <a
+              href="#kurallar"
+              class="nav-link-underline hover:text-white transition-colors whitespace-nowrap shrink-0 py-1"
+              >Kurallar</a
+            >
+            <a
+              href="#kadro"
+              class="nav-link-underline hover:text-white transition-colors whitespace-nowrap shrink-0 py-1"
+              >Kadro</a
+            >
+            <a
+              href="#partnerlik"
+              class="nav-link-underline hover:text-white transition-colors whitespace-nowrap shrink-0 py-1"
+              >Partnerlik</a
+            >
+            <a
+              href="#basvuru"
+              class="nav-link-underline hover:text-white transition-colors whitespace-nowrap shrink-0 py-1"
+              >Başvuru</a
+            >
+          </nav>
+
+          <!-- Right: Live Online Counter + Join Button -->
+          <div class="flex items-center gap-3 shrink-0">
+            <div
+              id="nav-online-badge"
+              title="Discord API canlı çevrimiçi üye sayısı"
+              class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-neon-ice/25 bg-night-900/80 text-xs font-mono text-slate-200 whitespace-nowrap shrink-0"
+            >
+              <span class="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]" aria-hidden="true"></span>
+              <span id="nav-online-count" class="tabular-nums font-semibold text-white">--</span>
+              <span class="text-slate-400">Çevrimiçi</span>
+            </div>
+
+            <a
+              href="https://discord.gg/r44x"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-discord-invite
+              class="btn-neon-primary inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-white whitespace-nowrap shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-neon-ice"
+            >
+              <i data-lucide="sparkles" class="w-4 h-4 hidden sm:inline"></i>
+              <span>Sunucuya Katıl</span>
+            </a>
+
+            <!-- Mobile Menu Toggle -->
+            <button
+              id="mobile-menu-btn"
+              type="button"
+              aria-label="Menüyü Aç/Kapat"
+              aria-expanded="false"
+              class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl border border-slate-700/70 bg-night-900/80 text-slate-200 hover:text-white hover:border-neon-ice/50 transition-colors"
+            >
+              <i data-lucide="menu" id="mobile-menu-icon-open" class="w-5 h-5"></i>
+              <i data-lucide="x" id="mobile-menu-icon-close" class="w-5 h-5 hidden"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div
+          id="mobile-menu"
+          class="hidden md:hidden border-t border-slate-800/80 bg-[#050811]/95 backdrop-blur-xl px-4 py-4 space-y-2"
+        >
+          <a
+            href="#ana-sayfa"
+            class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-200 hover:bg-night-850 hover:text-white transition-colors"
+            >Ana Sayfa</a
+          >
+          <a
+            href="#kurallar"
+            class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-200 hover:bg-night-850 hover:text-white transition-colors"
+            >Kurallar</a
+          >
+          <a
+            href="#kadro"
+            class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-200 hover:bg-night-850 hover:text-white transition-colors"
+            >Kadro</a
+          >
+          <a
+            href="#partnerlik"
+            class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-200 hover:bg-night-850 hover:text-white transition-colors"
+            >Partnerlik</a
+          >
+          <a
+            href="#basvuru"
+            class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-200 hover:bg-night-850 hover:text-white transition-colors"
+            >Başvuru</a
+          >
+          <div class="pt-2 border-t border-slate-800/70 flex items-center justify-between px-3 py-1 text-xs font-mono text-slate-400">
+            <span>Canlı Çevrimiçi</span>
+            <span id="mobile-online-count" class="tabular-nums font-semibold text-neon-ice">-- Üye</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="flex-1">
+        <!-- HERO SECTION -->
+        <section id="ana-sayfa" class="relative pt-12 pb-16 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+              <!-- Left Column -->
+              <div class="lg:col-span-7 space-y-6">
+                <div class="flex items-center text-xs font-mono tracking-wide text-neon-ice">
+                  <a
+                    href="https://discord.gg/r44x"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-discord-invite
+                    class="hover:text-white transition-colors"
+                    >discord.gg/r44x</a
+                  >
+                </div>
+
+                <h1
+                  class="text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight leading-[1.1] text-white"
+                  style="text-wrap: balance;"
+                >
+                  <span class="neon-text-gradient">R44X TOPLULUĞUNA</span>
+                  <span class="block mt-1 text-white drop-shadow-[0_0_24px_rgba(139,92,246,0.35)]">
+                    HOŞ GELDİNİZ
+                  </span>
+                </h1>
+
+                <p class="text-base sm:text-lg text-slate-300/90 leading-relaxed max-w-2xl">
+                  Saygı, kaliteli sohbet ve kesintisiz eğlence ekseninde buluşan yeni nesil Discord topluluğu.
+                  Oyun gecelerinden özel etkinliklere, güvenli ortamdan güçlü dostluklara uzanan modern dijital
+                  evimize sen de katıl; ister üye olarak yerini al, ister yetkili ve partnerlik başvurusuyla
+                  ekibimizin bir parçası ol.
+                </p>
+
+                <!-- Hero Actions -->
+                <div class="flex flex-wrap items-center gap-4 pt-2">
+                  <a
+                    href="https://discord.gg/r44x"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-discord-invite
+                    class="btn-neon-primary inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl text-sm sm:text-base font-semibold text-white whitespace-nowrap shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-neon-ice"
+                  >
+                    <i data-lucide="compass" class="w-5 h-5"></i>
+                    <span>Discord'a Katıl</span>
+                  </a>
+
+                  <a
+                    href="#basvuru"
+                    class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl text-sm sm:text-base font-semibold text-slate-100 border border-slate-700/80 bg-night-900/75 hover:border-neon-purple/60 hover:bg-night-850 hover:text-white transition-all whitespace-nowrap shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-neon-purple"
+                  >
+                    <i data-lucide="file-signature" class="w-5 h-5 text-neon-ice"></i>
+                    <span>Başvuru Yap</span>
+                  </a>
+                </div>
+
+                <!-- Concise Highlight Metrics Strip -->
+                <div class="pt-4 border-t border-slate-800/80 grid grid-cols-3 gap-4 max-w-xl">
+                  <div>
+                    <div class="text-xs font-mono text-slate-400">Sunucu Kimliği</div>
+                    <div class="mt-1 text-base sm:text-lg font-bold font-mono text-white">R44X</div>
+                  </div>
+                  <div>
+                    <div class="text-xs font-mono text-slate-400">Anlık Çevrimiçi</div>
+                    <div id="hero-online-stat" class="mt-1 text-base sm:text-lg font-bold font-mono text-neon-ice tabular-nums">
+                      --
+                    </div>
+                  </div>
+                  <div>
+                    <div class="text-xs font-mono text-slate-400">Moderasyon</div>
+                    <div class="mt-1 text-base sm:text-lg font-bold font-mono text-neon-purple">7/24 Aktif</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Column: Glowing Glassmorphism Showcase Card -->
+              <div class="lg:col-span-5">
+                <div class="relative mx-auto max-w-md lg:max-w-none">
+                  <!-- Outer Ambient Glow -->
+                  <div
+                    class="absolute -inset-2 rounded-[2rem] bg-gradient-to-tr from-neon-purple/35 via-neon-ice/25 to-neon-purple/35 blur-2xl opacity-75 pointer-events-none"
+                    aria-hidden="true"
+                  ></div>
+
+                  <div class="relative glass-panel rounded-3xl p-6 sm:p-8 overflow-hidden">
+                    <!-- Subtle Frost Grid Accent -->
+                    <div
+                      class="absolute inset-0 opacity-20 pointer-events-none"
+                      style="background-image: radial-gradient(rgba(56,189,248,0.22) 1px, transparent 1px); background-size: 22px 22px;"
+                      aria-hidden="true"
+                    ></div>
+
+                    <div class="relative z-10 flex flex-col items-center text-center">
+                      <div class="w-full aspect-square max-w-[280px] sm:max-w-[310px] rounded-2xl p-1.5 bg-gradient-to-br from-neon-purple/60 via-neon-ice/40 to-neon-purple/60 shadow-[0_0_40px_rgba(56,189,248,0.25)]">
+                        <div class="w-full h-full rounded-[14px] overflow-hidden bg-night-950 flex items-center justify-center relative">
+                          <img
+                            id="hero-logo-img"
+                            src="/assets/aistudio/a7439ce5-66ef-46cc-80e7-4a68f50cbe3c_d74dc5d2.webp"
+                            alt="R44X Resmi Vitrin Logosu"
+                            referrerpolicy="no-referrer"
+                            class="w-full h-full object-cover"
+                            onerror="this.classList.add('hidden'); document.getElementById('hero-logo-fallback').classList.remove('hidden');"
+                          />
+
+                          <!-- Sleek R44X Neon Fallback -->
+                          <div
+                            id="hero-logo-fallback"
+                            class="hidden w-full h-full flex flex-col items-center justify-center p-6 bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.22)_0%,rgba(5,8,17,0.98)_72%)]"
+                          >
+                            <div class="w-24 h-24 rounded-2xl border border-neon-ice/40 bg-night-900/90 flex items-center justify-center shadow-[0_0_32px_rgba(56,189,248,0.3)] mb-4">
+                              <svg
+                                viewBox="0 0 64 64"
+                                class="w-14 h-14 text-neon-ice drop-shadow-[0_0_12px_rgba(56,189,248,0.65)]"
+                                fill="none"
+                                aria-hidden="true"
+                              >
+                                <path
+                                  d="M32 6L54 18.5V45.5L32 58L10 45.5V18.5L32 6Z"
+                                  stroke="url(#r44xGrad)"
+                                  stroke-width="2.5"
+                                />
+                                <path
+                                  d="M21 41V23H31.5C35.5 23 38 25.2 38 28.6C38 31.4 36.2 33.4 33.4 34L38.8 41H33.5L28.8 34.4H25.2V41H21ZM25.2 30.8H30.8C32.6 30.8 33.7 29.9 33.7 28.5C33.7 27.1 32.6 26.3 30.8 26.3H25.2V30.8Z"
+                                  fill="#ffffff"
+                                />
+                                <defs>
+                                  <linearGradient id="r44xGrad" x1="10" y1="6" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#38BDF8" />
+                                    <stop offset="1" stop-color="#8B5CF6" />
+                                  </linearGradient>
+                                </defs>
+                              </svg>
+                            </div>
+                            <span class="text-3xl font-extrabold tracking-widest neon-text-gradient font-mono">
+                              R44X
+                            </span>
+                            <span class="mt-1.5 text-xs font-mono text-slate-400 tracking-wider">
+                              RESMİ DİSCORD TOPLULUĞU
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="mt-6 w-full pt-5 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-400">
+                        <span class="text-slate-200 font-semibold">R44X Sunucusu</span>
+                        <span class="text-neon-ice">discord.gg/r44x</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- LIVE DISCORD WIDGET & STATS SECTION -->
+        <section id="istatistikler" class="py-14 sm:py-20 border-t border-slate-800/60">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+              <div>
+                <p class="text-xs font-mono text-neon-ice tracking-wide mb-2">Canlı Sunucu Verileri</p>
+                <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+                  Discord Widget &amp; Anlık Durum
+                </h2>
+              </div>
+              <button
+                id="refresh-widget-btn"
+                type="button"
+                class="inline-flex items-center gap-2 self-start sm:self-auto px-3.5 py-2 rounded-xl border border-slate-700/80 bg-night-900/70 hover:border-neon-ice/50 text-xs font-medium text-slate-200 hover:text-white transition-colors cursor-pointer"
+              >
+                <i data-lucide="refresh-cw" id="refresh-widget-icon" class="w-3.5 h-3.5 text-neon-ice"></i>
+                <span>Verileri Yenile</span>
+              </button>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+              <!-- Left Stats Summary -->
+              <div class="lg:col-span-5 glass-panel rounded-2xl p-6 flex flex-col justify-between gap-6">
+                <div class="space-y-4">
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                      <div class="w-11 h-11 rounded-xl bg-neon-purple/15 border border-neon-purple/30 flex items-center justify-center text-neon-purple">
+                        <i data-lucide="radio" class="w-5 h-5"></i>
+                      </div>
+                      <div>
+                        <h3 id="widget-server-name" class="text-lg font-bold text-white">R44X</h3>
+                        <p id="widget-status-text" class="text-xs font-mono text-slate-400">
+                          Discord API bağlantısı kuruluyor...
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="grid grid-cols-2 gap-4 pt-2">
+                    <div class="rounded-xl bg-night-950/75 border border-slate-800/80 p-4">
+                      <div class="text-xs font-mono text-slate-400">Çevrimiçi Üye</div>
+                      <div
+                        id="widget-online-count"
+                        class="mt-1.5 text-2xl sm:text-3xl font-extrabold font-mono text-neon-ice tabular-nums"
+                      >
+                        --
+                      </div>
+                    </div>
+                    <div class="rounded-xl bg-night-950/75 border border-slate-800/80 p-4">
+                      <div class="text-xs font-mono text-slate-400">Ses &amp; Kanal</div>
+                      <div
+                        id="widget-channel-count"
+                        class="mt-1.5 text-2xl sm:text-3xl font-extrabold font-mono text-neon-purple tabular-nums"
+                      >
+                        --
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between gap-4">
+                  <span class="text-xs font-mono text-slate-400 truncate">
+                    ID: <span id="widget-server-id" class="text-slate-300">1563639245762076766</span>
+                  </span>
+                  <a
+                    id="widget-invite-link"
+                    href="https://discord.gg/r44x"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1.5 text-xs font-semibold text-neon-ice hover:text-white transition-colors whitespace-nowrap shrink-0"
+                  >
+                    <span>Hemen Bağlan</span>
+                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Right Online Members Preview -->
+              <div class="lg:col-span-7 glass-panel rounded-2xl p-6 flex flex-col justify-between">
+                <div class="flex items-center justify-between gap-4 mb-4">
+                  <h3 class="text-base font-semibold text-white flex items-center gap-2">
+                    <i data-lucide="users" class="w-4 h-4 text-neon-ice"></i>
+                    <span>Aktif Topluluk Üyeleri</span>
+                  </h3>
+                  <span id="widget-members-subtitle" class="text-xs font-mono text-slate-400">
+                    Canlı Liste
+                  </span>
+                </div>
+
+                <div
+                  id="widget-members-container"
+                  class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[260px] overflow-y-auto pr-1"
+                >
+                  <!-- Populated dynamically via JS -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SERVER RULES & OFFICIAL DISCORD POLICIES -->
+        <section id="kurallar" class="py-14 sm:py-20 border-t border-slate-800/60">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-2xl mb-10">
+              <p class="text-xs font-mono text-neon-purple tracking-wide mb-2">Topluluk Düzeni</p>
+              <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+                Sunucu Kuralları &amp; Resmi Politikalar
+              </h2>
+              <p class="mt-2 text-sm sm:text-base text-slate-400">
+                R44X çatısı altında herkes için huzurlu, saygılı ve güvenli bir deneyim sağlamak amacıyla
+                aşağıdaki temel kurallar geçerlidir.
+              </p>
+            </div>
+
+            <!-- Core Community Rules Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
+              <article class="glass-panel glass-panel-hover rounded-2xl p-6">
+                <div class="text-xs font-mono font-semibold text-neon-ice mb-2">01. Saygı ve Nezaket</div>
+                <h3 class="text-base font-bold text-white mb-2">Üslup &amp; Kişisel Sınırlar</h3>
+                <p class="text-sm text-slate-400 leading-relaxed">
+                  Tüm üyelere karşı saygılı bir dil kullanın. Hakaret, küçümseme, toksik davranışlar ve
+                  kışkırtıcı tutumlara kesinlikle izin verilmez.
+                </p>
+              </article>
+
+              <article class="glass-panel glass-panel-hover rounded-2xl p-6">
+                <div class="text-xs font-mono font-semibold text-neon-ice mb-2">02. Sohbet Disiplini</div>
+                <h3 class="text-base font-bold text-white mb-2">Spam &amp; Flood Yasağı</h3>
+                <p class="text-sm text-slate-400 leading-relaxed">
+                  Metin ve ses kanallarında gereksiz etiketleme, art arda mesaj gönderme, büyük harf
+                  istismarı ve ses kirliliği oluşturmak yasaktır.
+                </p>
+              </article>
+
+              <article class="glass-panel glass-panel-hover rounded-2xl p-6">
+                <div class="text-xs font-mono font-semibold text-neon-ice mb-2">03. Reklam &amp; Tanıtım</div>
+                <h3 class="text-base font-bold text-white mb-2">İzinsiz Paylaşım Yapmayın</h3>
+                <p class="text-sm text-slate-400 leading-relaxed">
+                  Yetkili izni olmadan sunucu içinde veya üyelerin özel mesajlarında Discord daveti,
+                  sosyal medya ya da ticari reklam paylaşımı yasaktır.
+                </p>
+              </article>
+
+              <article class="glass-panel glass-panel-hover rounded-2xl p-6">
+                <div class="text-xs font-mono font-semibold text-neon-ice mb-2">04. Güvenlik &amp; Gizlilik</div>
+                <h3 class="text-base font-bold text-white mb-2">Kişisel Verilerin Korunması</h3>
+                <p class="text-sm text-slate-400 leading-relaxed">
+                  Üyelerin özel bilgilerini izinsiz paylaşmak (doxxing), zararlı bağlantılar veya
+                  kimlik avı içerikleri göndermek kalıcı yasaklama sebebidir.
+                </p>
+              </article>
+
+              <article class="glass-panel glass-panel-hover rounded-2xl p-6">
+                <div class="text-xs font-mono font-semibold text-neon-ice mb-2">05. İçerik Uygunluğu</div>
+                <h3 class="text-base font-bold text-white mb-2">NSFW &amp; Yasa Dışı İçerik</h3>
+                <p class="text-sm text-slate-400 leading-relaxed">
+                  Şiddet, nefret söylemi, +18 içerikler ve telif/yasa ihlali barındıran her türlü
+                  medya paylaşımı tüm kanallarda yasaktır.
+                </p>
+              </article>
+
+              <article class="glass-panel glass-panel-hover rounded-2xl p-6">
+                <div class="text-xs font-mono font-semibold text-neon-ice mb-2">06. Yetkili Kararları</div>
+                <h3 class="text-base font-bold text-white mb-2">Topluluk İnisiyatifi</h3>
+                <p class="text-sm text-slate-400 leading-relaxed">
+                  Yazılı kurallarda açıkça belirtilmeyen durumlarda dahi sunucu düzenini korumak adına
+                  yönetim ve moderasyon ekibinin kararları geçerlidir.
+                </p>
+              </article>
+            </div>
+
+            <!-- Official Discord Policies & Rules Box -->
+            <div
+              class="glass-panel rounded-2xl p-6 sm:p-8 border border-neon-purple/35 shadow-[0_0_40px_-16px_rgba(139,92,246,0.35)]"
+            >
+              <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                <div class="flex items-start sm:items-center gap-3.5">
+                  <div class="w-11 h-11 rounded-xl bg-neon-ice/15 border border-neon-ice/35 flex items-center justify-center text-neon-ice shrink-0">
+                    <i data-lucide="shield-check" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-lg sm:text-xl font-bold text-white">
+                      Resmi Discord Politikaları &amp; Kuralları
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-0.5">
+                      R44X sunucusundaki tüm kullanıcılar Discord'un küresel resmi politika ve şartlarına uymakla yükümlüdür.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <a
+                  href="https://discord.com/tos"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group flex items-center justify-between gap-3 p-4 rounded-xl bg-night-950/80 border border-slate-800 hover:border-neon-ice/70 hover:shadow-[0_0_24px_-6px_rgba(56,189,248,0.45)] transition-all"
+                >
+                  <div class="min-w-0">
+                    <div class="text-xs font-mono text-neon-ice">Resmi Belge</div>
+                    <div class="text-sm font-semibold text-white group-hover:text-neon-ice transition-colors truncate mt-0.5">
+                      Discord Hizmet Şartları (ToS)
+                    </div>
+                  </div>
+                  <i
+                    data-lucide="external-link"
+                    class="w-4 h-4 text-slate-400 group-hover:text-neon-ice group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0"
+                  ></i>
+                </a>
+
+                <a
+                  href="https://discord.com/terms"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group flex items-center justify-between gap-3 p-4 rounded-xl bg-night-950/80 border border-slate-800 hover:border-neon-purple/70 hover:shadow-[0_0_24px_-6px_rgba(139,92,246,0.45)] transition-all"
+                >
+                  <div class="min-w-0">
+                    <div class="text-xs font-mono text-neon-purple">Resmi Belge</div>
+                    <div class="text-sm font-semibold text-white group-hover:text-neon-purple transition-colors truncate mt-0.5">
+                      Discord Kullanım Koşulları (Terms)
+                    </div>
+                  </div>
+                  <i
+                    data-lucide="external-link"
+                    class="w-4 h-4 text-slate-400 group-hover:text-neon-purple group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0"
+                  ></i>
+                </a>
+
+                <a
+                  href="https://discord.com/privacy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group flex items-center justify-between gap-3 p-4 rounded-xl bg-night-950/80 border border-slate-800 hover:border-neon-ice/70 hover:shadow-[0_0_24px_-6px_rgba(56,189,248,0.45)] transition-all"
+                >
+                  <div class="min-w-0">
+                    <div class="text-xs font-mono text-neon-ice">Resmi Belge</div>
+                    <div class="text-sm font-semibold text-white group-hover:text-neon-ice transition-colors truncate mt-0.5">
+                      Discord Gizlilik Politikası (Privacy)
+                    </div>
+                  </div>
+                  <i
+                    data-lucide="external-link"
+                    class="w-4 h-4 text-slate-400 group-hover:text-neon-ice group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0"
+                  ></i>
+                </a>
+
+                <a
+                  href="https://discord.com/guidelines"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group flex items-center justify-between gap-3 p-4 rounded-xl bg-night-950/80 border border-slate-800 hover:border-neon-purple/70 hover:shadow-[0_0_24px_-6px_rgba(139,92,246,0.45)] transition-all"
+                >
+                  <div class="min-w-0">
+                    <div class="text-xs font-mono text-neon-purple">Resmi Belge</div>
+                    <div class="text-sm font-semibold text-white group-hover:text-neon-purple transition-colors truncate mt-0.5">
+                      Discord Topluluk İlkeleri (Guidelines)
+                    </div>
+                  </div>
+                  <i
+                    data-lucide="external-link"
+                    class="w-4 h-4 text-slate-400 group-hover:text-neon-purple group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0"
+                  ></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- MANAGEMENT TEAM (STAFF) SECTION -->
+        <section id="kadro" class="py-14 sm:py-20 border-t border-slate-800/60">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-2xl mb-10">
+              <p class="text-xs font-mono text-neon-gold tracking-wide mb-2">Liderlik &amp; Yönetim</p>
+              <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white">Yönetim Kadrosu</h2>
+              <p class="mt-2 text-sm sm:text-base text-slate-400">
+                R44X topluluğunun vizyonunu belirleyen kurucu yönetimi ve yakında aramıza katılacak yeni ekip kadromuz.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+              <!-- Prestigious Founder Card: VREX -->
+              <div class="lg:col-span-7 crown-card-glow rounded-3xl p-6 sm:p-8 relative overflow-hidden flex flex-col justify-between">
+                <div
+                  class="absolute -right-12 -top-12 w-56 h-56 rounded-full bg-neon-gold/10 blur-3xl pointer-events-none"
+                  aria-hidden="true"
+                ></div>
+
+                <div class="relative z-10 flex flex-col sm:flex-row sm:items-center gap-6">
+                  <!-- Avatar with Golden Crown Badge -->
+                  <div class="relative shrink-0 self-start">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl p-[2px] bg-gradient-to-br from-neon-gold via-amber-300 to-neon-purple shadow-[0_0_28px_rgba(251,191,36,0.45)]">
+                      <div class="w-full h-full rounded-[14px] bg-night-950 flex flex-col items-center justify-center">
+                        <i
+                          data-lucide="crown"
+                          class="w-10 h-10 text-neon-gold drop-shadow-[0_0_12px_rgba(251,191,36,0.8)]"
+                        ></i>
+                        <span class="mt-1 text-[11px] font-mono font-bold tracking-widest text-amber-200">
+                          VREX
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="space-y-3">
+                    <div class="flex flex-wrap items-center gap-3">
+                      <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
+                        VREX
+                      </h3>
+                      <span
+                        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-neon-gold/15 border border-neon-gold/45 text-xs font-mono font-bold tracking-wider text-neon-gold shadow-[0_0_16px_rgba(251,191,36,0.25)]"
+                      >
+                        <i data-lucide="crown" class="w-3.5 h-3.5"></i>
+                        <span>KURUCU</span>
+                      </span>
+                    </div>
+
+                    <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                      R44X topluluğunun kurucusu ve baş yöneticisi. Sunucu altyapısı, topluluk kültürü,
+                      partnerlik stratejileri ve yetkili ekibinin koordinasyonundan doğrudan sorumludur.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-3 text-xs font-mono text-slate-400 pt-1">
+                      <span class="text-amber-200/90">Üst Düzey Yönetim</span>
+                      <span aria-hidden="true">·</span>
+                      <span>Discord Etiketi: &lt;@334160102934183936&gt;</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="relative z-10 mt-6 pt-5 border-t border-neon-gold/20 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-400">
+                  <span>Yönetim Ekibinde Tek Kurucu Liderlik</span>
+                  <a
+                    href="#basvuru"
+                    class="inline-flex items-center gap-1.5 font-semibold text-neon-gold hover:text-amber-200 transition-colors"
+                  >
+                    <span>Ekip Başvurusu Yap</span>
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Kadro Category Box: YAKINDA -->
+              <div
+                class="lg:col-span-5 glass-panel rounded-3xl p-6 sm:p-8 flex flex-col items-center justify-center text-center relative overflow-hidden border border-neon-ice/25"
+              >
+                <div
+                  class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.12)_0%,transparent_70%)] pointer-events-none"
+                  aria-hidden="true"
+                ></div>
+
+                <div class="relative z-10 flex flex-col items-center">
+                  <div
+                    class="w-16 h-16 rounded-2xl bg-night-950/90 border border-neon-ice/40 flex items-center justify-center text-neon-ice shadow-[0_0_28px_rgba(56,189,248,0.3)] mb-5"
+                  >
+                    <i data-lucide="lock" class="w-8 h-8"></i>
+                  </div>
+
+                  <div class="text-xs font-mono tracking-widest text-slate-400 uppercase mb-2">
+                    Kadro Kategorisi
+                  </div>
+
+                  <div
+                    class="text-3xl sm:text-4xl font-extrabold tracking-[0.18em] neon-text-gradient drop-shadow-[0_0_24px_rgba(56,189,248,0.55)]"
+                  >
+                    YAKINDA
+                  </div>
+
+                  <p class="mt-3 text-sm text-slate-400 max-w-xs leading-relaxed">
+                    Yeni moderatör, rehber ve etkinlik sorumluları başvurular arasından özenle seçilerek
+                    burada listelenecektir.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PARTNERSHIP REQUIREMENTS SECTION -->
+        <section id="partnerlik" class="py-14 sm:py-20 border-t border-slate-800/60">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-panel rounded-3xl p-6 sm:p-10 relative overflow-hidden">
+              <div
+                class="absolute -right-24 -bottom-24 w-72 h-72 rounded-full bg-neon-ice/10 blur-3xl pointer-events-none"
+                aria-hidden="true"
+              ></div>
+
+              <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-7 space-y-5">
+                  <div>
+                    <p class="text-xs font-mono text-neon-ice tracking-wide mb-2">Topluluk İş Birliği</p>
+                    <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+                      Partnerlik Şartları
+                    </h2>
+                    <p class="mt-2 text-sm sm:text-base text-slate-400">
+                      R44X ile karşılıklı büyüme ve etkileşim odaklı partnerlik kurmak isteyen sunucuların
+                      aşağıdaki kriterleri karşılaması beklenmektedir.
+                    </p>
+                  </div>
+
+                  <ul class="space-y-3 text-sm sm:text-base text-slate-200">
+                    <li class="flex items-start gap-3">
+                      <span class="w-6 h-6 rounded-lg bg-neon-ice/15 border border-neon-ice/35 flex items-center justify-center text-neon-ice shrink-0 mt-0.5">
+                        <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                      </span>
+                      <span>
+                        Sunucunuzun <strong class="text-white">Discord ToS ve Topluluk İlkelerine</strong> tamamen uygun, aktif ve düzenli bir yapıya sahip olması gerekir.
+                      </span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="w-6 h-6 rounded-lg bg-neon-ice/15 border border-neon-ice/35 flex items-center justify-center text-neon-ice shrink-0 mt-0.5">
+                        <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                      </span>
+                      <span>
+                        Sunucunuzda <strong class="text-white">NSFW, toksik reklam veya izinsiz bot spamı</strong> bulunmamalıdır.
+                      </span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="w-6 h-6 rounded-lg bg-neon-ice/15 border border-neon-ice/35 flex items-center justify-center text-neon-ice shrink-0 mt-0.5">
+                        <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                      </span>
+                      <span>
+                        Karşılıklı partnerlik duyurusunun <strong class="text-white">her iki sunucuda da</strong> görünür bir partnerlik kanalında paylaşılması zorunludur.
+                      </span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="w-6 h-6 rounded-lg bg-neon-ice/15 border border-neon-ice/35 flex items-center justify-center text-neon-ice shrink-0 mt-0.5">
+                        <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                      </span>
+                      <span>
+                        Başvuruyu yapan kişinin ilgili sunucuda <strong class="text-white">yetkili veya partnerlik sorumlusu</strong> olması gerekir.
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="lg:col-span-5">
+                  <div class="rounded-2xl bg-night-950/85 border border-slate-800/90 p-6 sm:p-7 space-y-5">
+                    <div class="flex items-center gap-3">
+                      <div class="w-11 h-11 rounded-xl bg-neon-purple/15 border border-neon-purple/35 flex items-center justify-center text-neon-purple">
+                        <i data-lucide="handshake" class="w-5 h-5"></i>
+                      </div>
+                      <div>
+                        <h3 class="text-lg font-bold text-white">Ortaklığa Hazır mısınız?</h3>
+                        <p class="text-xs text-slate-400">Başvurular doğrudan VREX'e iletilir</p>
+                      </div>
+                    </div>
+
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                      Şartları sağlıyorsanız aşağıdaki başvuru portalından partnerlik formunu doldurarak
+                      sunucunuzu tanıtabilirsiniz.
+                    </p>
+
+                    <button
+                      id="go-partner-form-btn"
+                      type="button"
+                      class="btn-neon-primary w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold text-white cursor-pointer whitespace-nowrap"
+                    >
+                      <span>Partnerlik Başvurusu Yap</span>
+                      <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- INTERACTIVE APPLICATION PORTAL -->
+        <section id="basvuru" class="py-14 sm:py-24 border-t border-slate-800/60">
+          <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+              <p class="text-xs font-mono text-neon-ice tracking-wide mb-2">Discord Webhook Entegreli</p>
+              <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+                İnteraktif Başvuru Portalı
+              </h2>
+              <p class="mt-2.5 text-sm sm:text-base text-slate-400">
+                Başvuru türünü seçin, tüm alanları eksiksiz doldurun. Formunuz anında kurucu incelemesine
+                iletilecektir.
+              </p>
+            </div>
+
+            <div class="glass-panel rounded-3xl p-5 sm:p-8 lg:p-10">
+              <!-- Tab Switcher -->
+              <div
+                role="tablist"
+                aria-label="Başvuru Türü Seçimi"
+                class="grid grid-cols-1 sm:grid-cols-2 gap-2 p-1.5 rounded-2xl bg-night-950/90 border border-slate-800/90 mb-8"
+              >
+                <button
+                  id="tab-staff"
+                  type="button"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="panel-staff"
+                  class="flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer bg-gradient-to-r from-neon-purple to-neon-ice text-white shadow-[0_0_20px_rgba(139,92,246,0.35)] whitespace-nowrap"
+                >
+                  <i data-lucide="shield" class="w-4 h-4 shrink-0"></i>
+                  <span>R44X YETKİLİ EKİBİ ALIMLARI</span>
+                </button>
+                <button
+                  id="tab-partner"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="panel-partner"
+                  class="flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer text-slate-400 hover:text-white hover:bg-night-900 whitespace-nowrap"
+                >
+                  <i data-lucide="handshake" class="w-4 h-4 shrink-0"></i>
+                  <span>Partnerlik Başvurusu</span>
+                </button>
+              </div>
+
+              <!-- Notification Area -->
+              <div
+                id="form-notification"
+                role="status"
+                aria-live="polite"
+                class="hidden mb-6 rounded-2xl p-4 border flex items-start gap-3 text-sm"
+              >
+                <i id="form-notification-icon" data-lucide="check-circle-2" class="w-5 h-5 shrink-0 mt-0.5"></i>
+                <div class="flex-1">
+                  <div id="form-notification-title" class="font-semibold"></div>
+                  <div id="form-notification-desc" class="text-xs opacity-90 mt-0.5"></div>
+                </div>
+              </div>
+
+              <!-- STAFF APPLICATION FORM (9 Required Fields) -->
+              <form id="staff-form" class="space-y-5" novalidate>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <!-- 1. İsim -->
+                  <div>
+                    <label for="staff-name" class="block text-sm font-medium text-slate-200 mb-1.5">
+                      1. İsim (gerçek isim zorunlu) <span class="text-neon-purple">*</span>
+                    </label>
+                    <input
+                      id="staff-name"
+                      name="name"
+                      type="text"
+                      required
+                      placeholder="Örn: Ahmet Yılmaz"
+                      class="w-full rounded-xl bg-night-950/90 border border-slate-800 px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-colors"
+                    />
+                  </div>
+
+                  <!-- 2. Discord ADIN @ ? -->
+                  <div>
+                    <label for="staff-discord" class="block text-sm font-medium text-slate-200 mb-1.5">
+                      2. Discord ADIN @ ? <span class="text-neon-purple">*</span>
+                    </label>
+                    <input
+                      id="staff-discord"
+                      name="discord"
+                      type="text"
+                      required
+                      placeholder="örn: @kullaniciadi"
+                      class="w-full rounded-xl bg-night-950/90 border border-slate-800 px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-colors"
+                    />
+                  </div>
+
+                  <!-- 3. Yaş -->
+                  <div>
+                    <label for="staff-age" class="block text-sm font-medium text-slate-200 mb-1.5">
+                      3. Yaş <span class="text-neon-purple">*</span>
+                    </label>
+                    <input
+                      id="staff-age"
+                      name="age"
+                      type="number"
+                      min="13"
+                      max="99"
+                      required
+                      placeholder="Örn: 18"
+                      class="w-full rounded-xl bg-night-950/90 border border-slate-800 px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-colors tabular-nums"
+                    />
+                  </div>
+
+                  <!-- 4. Günlük Kaç Saat Aktifliğin Var ? -->
+                  <div>
+                    <label for="staff-daily-active" class="block text-sm font-medium text-slate-200 mb-1.5">
+                      4. Günlük Kaç Saat Aktifliğin Var ? <span class="text-neon-purple">*</span>
+                    </label>
+                    <input
+                      id="staff-daily-active"
+                      name="dailyActive"
+                      type="text"
+                      required
+                      placeholder="Örn: 5-6 saat"
+                      class="w-full rounded-xl bg-night-950/90 border border-slate-800 px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-colors"
+                    />
+                  </div>
+
+                  <!-- 5. Sunucuya Kaç Saat Ayırabilirsin ? -->
+                  <div>
+                    <label for="staff-server-hours" class="block text-sm font-medium text-slate-200 mb-1.5">
+                      5. Sunucuya Kaç Saat Ayırabilirsin ? <span class="text-neon-purple">*</span>
+                    </label>
+                    <input
+                      id="staff-server-hours"
+                      name="serverHours"
+                      type="text"
+                      required
+                      placeholder="Örn: 3-4 saat"
+                      class="w-full rounded-xl bg-night-950/90 border border-slate-800 px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-colors"
+                    />
+                  </div>
+
+                  <!-- 6. Discordu Ne Zamandır Kullanıyorsun ? -->
+                  <div>
+                    <label for="staff-discord-since" class="block text-sm font-medium text-slate-200 mb-1.5">
+                      6. Discordu Ne Zamandır Kullanıyorsun ? <span class="text-neon-purple">*</span>
+                    </label>
+                    <input
+                      id="staff-discord-since"
+                      name="discordSince"
+                      type="text"
+                      required
+                      placeholder="Örn: 4 yıldır (2022'den beri)"
+                      class="w-full rounded-xl bg-night-950/90 border border-slate-800 px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-colors"
+                    />
+                  </div>
+                </div>
+
+                <!-- 7. Ne için Yetkili Olmak istiyorsun ? -->
+                <div>
+                  <label for="staff-why" class="block text-sm font-medium text-slate-200 mb-1.5">
+                    7. Ne için Yetkili Olmak istiyorsun ? <span class="text-neon-purple">*</span>
+                  </label>
+                  <textarea
+                    id="staff-why"
+                    name="whyStaff"
+                    rows="3"
+                    required
+                    placeholder="Topluluğa katmak istediğiniz değerleri ve motivasyonunuzu yazın..."
+                    class="w-full rounded-xl bg-night-950/90 border border-slate-800 px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-colors resize-y"
+                  ></textarea>
+                </div>
+
+                <!-- 8. Bizden Ne Gibi Rol bekliyorsun ? -->
+                <div>
+                  <label for="staff-expected-role" class="block text-sm font-medium text-slate-200 mb-1.5">
+                    8. Bizden Ne Gibi Rol bekliyorsun ? <span class="text-neon-purple">*</span>
+                  </label>
+                  <textarea
+                    id="staff-expected-role"
+                    name="expectedRole"
+                    rows="3"
+                    required
+                    placeholder="Yetki beklentilerinizi ve görev anlayışınızı açıklayın..."
+                    class="w-full rounded-xl bg-night-950/90 border border-slate-800 px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-colors resize-y"
+                  ></textarea>
+                </div>
+
+                <!-- 9. İstediğin Rol Nedir ? -->
+                <div>
+                  <label for="staff-desired-role" class="block text-sm font-medium text-slate-200 mb-1.5">
+                    9. İstediğin Rol Nedir ? <span class="text-neon-purple">*</span>
+                  </label>
+                  <input
+                    id="staff-desired-role"
+                    name="desiredRole"
+                    type="text"
+                    required
+                    placeholder="Örn: Moderatör, Rehber, Etkinlik Sorumlusu..."
+                    class="w-full rounded-xl bg-night-950/90 border border-slate-800 px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-colors"
+                  />
+                </div>
+
+                <div class="pt-2">
+                  <button
+                    id="staff-submit-btn"
+                    type="submit"
+                    class="btn-neon-primary w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl text-sm sm:text-base font-semibold text-white cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                    <span id="staff-submit-label">Yetkili Başvurusunu Gönder</span>
+                  </button>
+                </div>
+              </form>
+
+              <!-- PARTNERSHIP APPLICATION FORM -->
+              <form id="partner-form" class="space-y-5 hidden" novalidate>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label for="partner-discord" class="block text-sm font-medium text-slate-200 mb-1.5">
+                      Discord Kullanıcı Adı <span class="text-neon-ice">*</span>
+                    </label>
+                    <input
+                      id="partner-discord"
+                      name="partnerDiscord"
+                      type="text"
+                      required
+                      placeholder="örn: @kullaniciadi"
+                      class="w-full rounded-xl bg-night-950/90 border border-slate-800 px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-neon-ice focus:ring-1 focus:ring-neon-ice transition-colors"
+                    />
+                  </div>
+
+                  <div>
+                    <label for="partner-server-name" class="block text-sm font-medium text-slate-200 mb-1.5">
+                      Sunucu Adı <span class="text-neon-ice">*</span>
+                    </label>
+                    <input
+                      id="partner-server-name"
+                      name="serverName"
+                      type="text"
+                      required
+                      placeholder="Örn: Yıldız Topluluğu"
+                      class="w-full rounded-xl bg-night-950/90 border border-slate-800 px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-neon-ice focus:ring-1 focus:ring-neon-ice transition-colors"
+                    />
+                  </div>
+
+                  <div>
+                    <label for="partner-member-count" class="block text-sm font-medium text-slate-200 mb-1.5">
+                      Sunucu Üye Sayısı <span class="text-neon-ice">*</span>
+                    </label>
+                    <input
+                      id="partner-member-count"
+                      name="memberCount"
+                      type="number"
+                      min="1"
+                      required
+                      placeholder="Örn: 450"
+                      class="w-full rounded-xl bg-night-950/90 border border-slate-800 px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-neon-ice focus:ring-1 focus:ring-neon-ice transition-colors tabular-nums"
+                    />
+                  </div>
+
+                  <div>
+                    <label for="partner-invite" class="block text-sm font-medium text-slate-200 mb-1.5">
+                      Sunucu Davet Linki <span class="text-neon-ice">*</span>
+                    </label>
+                    <input
+                      id="partner-invite"
+                      name="inviteLink"
+                      type="url"
+                      required
+                      placeholder="https://discord.gg/..."
+                      class="w-full rounded-xl bg-night-950/90 border border-slate-800 px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-neon-ice focus:ring-1 focus:ring-neon-ice transition-colors"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label for="partner-description" class="block text-sm font-medium text-slate-200 mb-1.5">
+                    Kısa Sunucu Tanıtımı <span class="text-neon-ice">*</span>
+                  </label>
+                  <textarea
+                    id="partner-description"
+                    name="serverDescription"
+                    rows="4"
+                    required
+                    placeholder="Sunucunuzun konsepti, aktifliği ve topluluk kitlesi hakkında kısa bilgi verin..."
+                    class="w-full rounded-xl bg-night-950/90 border border-slate-800 px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-neon-ice focus:ring-1 focus:ring-neon-ice transition-colors resize-y"
+                  ></textarea>
+                </div>
+
+                <div class="pt-2">
+                  <button
+                    id="partner-submit-btn"
+                    type="submit"
+                    class="btn-neon-primary w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl text-sm sm:text-base font-semibold text-white cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                    <span id="partner-submit-label">Partnerlik Başvurusunu Gönder</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- FOOTER -->
+      <footer class="border-t border-slate-800/70 bg-night-950/90 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-3 text-sm text-slate-400">
+            <span class="font-bold text-white neon-wordmark">R44X</span>
+            <span aria-hidden="true" class="text-slate-600">·</span>
+            <span>&copy; <span id="footer-year">2026</span> R44X Topluluğu. Tüm hakları saklıdır.</span>
+          </div>
+
+          <nav aria-label="Alt Navigasyon" class="flex flex-wrap items-center justify-center gap-5 text-xs sm:text-sm text-slate-400">
+            <a href="#ana-sayfa" class="hover:text-white transition-colors">Ana Sayfa</a>
+            <a href="#kurallar" class="hover:text-white transition-colors">Kurallar</a>
+            <a href="#kadro" class="hover:text-white transition-colors">Kadro</a>
+            <a href="#partnerlik" class="hover:text-white transition-colors">Partnerlik</a>
+            <a href="#basvuru" class="hover:text-white transition-colors">Başvuru</a>
+          </nav>
+
+          <a
+            href="https://discord.gg/r44x"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-discord-invite
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-slate-800 bg-night-900/80 hover:border-neon-ice/50 text-xs font-semibold text-slate-200 hover:text-white transition-colors whitespace-nowrap"
+          >
+            <i data-lucide="message-circle" class="w-4 h-4 text-neon-ice"></i>
+            <span>discord.gg/r44x</span>
+          </a>
+        </div>
+      </footer>
+    </div>
+
+    <!-- APPLICATION LOGIC -->
+    <script>
+      // =========================================================================
+      // SABİT YAPILANDIRMA BİLGİLERİ
+      // =========================================================================
+      const CONFIG = {
+        SERVER_NAME: 'R44X',
+        LOGO_PATH: '/assets/aistudio/a7439ce5-66ef-46cc-80e7-4a68f50cbe3c_d74dc5d2.webp',
+        DISCORD_INVITE_URL: 'https://discord.gg/r44x',
+        DISCORD_SERVER_ID: '1563639245762076766',
+        STAFF_WEBHOOK_URL:
+          'https://discord.com/api/webhooks/1573372023357440054/F0jkP3MksAENVMNCh3nKiZOK0qBeQraJtbX5uaH1PRU05ed7MJgLxvO2DloQFX_tCZp1',
+        PARTNER_WEBHOOK_URL:
+          'https://discord.com/api/webhooks/1573372023357440054/F0jkP3MksAENVMNCh3nKiZOK0qBeQraJtbX5uaH1PRU05ed7MJgLxvO2DloQFX_tCZp1',
+        FOUNDER_MENTION: '<@334160102934183936>',
+        COOLDOWN_SECONDS: 60,
+      };
+
+      // =========================================================================
+      // DOM INITIALIZATION & LOGO BINDING
+      // =========================================================================
+      document.addEventListener('DOMContentLoaded', () => {
+        if (window.lucide) {
+          lucide.createIcons();
+        }
+
+        // Sync dynamic config links & labels
+        document.querySelectorAll('[data-discord-invite]').forEach((el) => {
+          el.setAttribute('href', CONFIG.DISCORD_INVITE_URL);
+        });
+
+        const navLogo = document.getElementById('nav-logo-img');
+        const heroLogo = document.getElementById('hero-logo-img');
+        if (navLogo) navLogo.src = CONFIG.LOGO_PATH;
+        if (heroLogo) heroLogo.src = CONFIG.LOGO_PATH;
+
+        const yearEl = document.getElementById('footer-year');
+        if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+        const serverIdEl = document.getElementById('widget-server-id');
+        if (serverIdEl) serverIdEl.textContent = CONFIG.DISCORD_SERVER_ID;
+
+        initSnowfall();
+        initMobileMenu();
+        initTabs();
+        initCooldownState();
+        initForms();
+        fetchDiscordWidget();
+      });
+
+      // =========================================================================
+      // SUBTLE SNOWFALL EFFECT (SNOWY NIGHT THEME)
+      // =========================================================================
+      function initSnowfall() {
+        const canvas = document.getElementById('snow-canvas');
+        if (!canvas) return;
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReduced) return;
+
+        const ctx = canvas.getContext('2d');
+        let width = (canvas.width = window.innerWidth);
+        let height = (canvas.height = window.innerHeight);
+
+        const flakeCount = Math.min(75, Math.max(32, Math.floor(width / 22)));
+        const flakes = Array.from({ length: flakeCount }, () => ({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          r: Math.random() * 1.9 + 0.6,
+          speedY: Math.random() * 0.65 + 0.25,
+          speedX: (Math.random() - 0.5) * 0.35,
+          opacity: Math.random() * 0.45 + 0.15,
+        }));
+
+        window.addEventListener('resize', () => {
+          width = canvas.width = window.innerWidth;
+          height = canvas.height = window.innerHeight;
+        });
+
+        function draw() {
+          ctx.clearRect(0, 0, width, height);
+          for (const f of flakes) {
+            f.y += f.speedY;
+            f.x += f.speedX;
+            if (f.y > height + 5) {
+              f.y = -5;
+              f.x = Math.random() * width;
+            }
+            if (f.x > width + 5) f.x = -5;
+            if (f.x < -5) f.x = width + 5;
+
+            ctx.beginPath();
+            ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(226, 232, 240, ${f.opacity})`;
+            ctx.fill();
+          }
+          requestAnimationFrame(draw);
+        }
+
+        requestAnimationFrame(draw);
+      }
+
+      // =========================================================================
+      // MOBILE MENU TOGGLE
+      // =========================================================================
+      function initMobileMenu() {
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const iconOpen = document.getElementById('mobile-menu-icon-open');
+        const iconClose = document.getElementById('mobile-menu-icon-close');
+        if (!btn || !menu) return;
+
+        const setOpen = (isOpen) => {
+          menu.classList.toggle('hidden', !isOpen);
+          btn.setAttribute('aria-expanded', String(isOpen));
+          if (iconOpen) iconOpen.classList.toggle('hidden', isOpen);
+          if (iconClose) iconClose.classList.toggle('hidden', !isOpen);
+        };
+
+        btn.addEventListener('click', () => {
+          const isCurrentlyOpen = !menu.classList.contains('hidden');
+          setOpen(!isCurrentlyOpen);
+        });
+
+        menu.querySelectorAll('.mobile-nav-link').forEach((link) => {
+          link.addEventListener('click', () => setOpen(false));
+        });
+      }
+
+      // =========================================================================
+      // LIVE DISCORD WIDGET API INTEGRATION
+      // =========================================================================
+      async function fetchDiscordWidget() {
+        const refreshIcon = document.getElementById('refresh-widget-icon');
+        if (refreshIcon) refreshIcon.classList.add('animate-spin');
+
+        const url = `https://discord.com/api/guilds/${CONFIG.DISCORD_SERVER_ID}/widget.json`;
+
+        try {
+          const response = await fetch(url, { cache: 'no-store' });
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
+          const data = await response.json();
+          renderDiscordWidgetSuccess(data);
+        } catch (_err) {
+          renderDiscordWidgetFallback();
+        } finally {
+          if (refreshIcon) {
+            setTimeout(() => refreshIcon.classList.remove('animate-spin'), 300);
+          }
+        }
+      }
+
+      function renderDiscordWidgetSuccess(data) {
+        const onlineCount = typeof data.presence_count === 'number' ? data.presence_count : 0;
+        const channelsCount = Array.isArray(data.channels) ? data.channels.length : 0;
+        const serverName = data.name || CONFIG.SERVER_NAME;
+        const members = Array.isArray(data.members) ? data.members : [];
+        const inviteUrl = data.instant_invite || CONFIG.DISCORD_INVITE_URL;
+
+        updateOnlineCounters(String(onlineCount));
+
+        const nameEl = document.getElementById('widget-server-name');
+        const statusEl = document.getElementById('widget-status-text');
+        const channelEl = document.getElementById('widget-channel-count');
+        const inviteEl = document.getElementById('widget-invite-link');
+        const subtitleEl = document.getElementById('widget-members-subtitle');
+        const container = document.getElementById('widget-members-container');
+
+        if (nameEl) nameEl.textContent = serverName;
+        if (statusEl) statusEl.textContent = 'Canlı Discord API verisi aktif';
+        if (channelEl) channelEl.textContent = String(channelsCount);
+        if (inviteEl) inviteEl.setAttribute('href', inviteUrl);
+        if (subtitleEl) subtitleEl.textContent = `${members.length} Üye Gösteriliyor`;
+
+        if (!container) return;
+        container.innerHTML = '';
+
+        if (members.length === 0) {
+          container.innerHTML = `
+            <div class="col-span-full rounded-xl bg-night-950/75 border border-slate-800/80 p-5 text-center text-sm text-slate-400">
+              Şu anda widget listesinde görüntülenen çevrimiçi üye bulunmuyor.
+            </div>
+          `;
+          return;
+        }
+
+        const statusColors = {
+          online: 'bg-emerald-400',
+          idle: 'bg-amber-400',
+          dnd: 'bg-rose-500',
+        };
+
+        members.slice(0, 12).forEach((member) => {
+          const item = document.createElement('div');
+          item.className =
+            'flex items-center gap-3 p-2.5 rounded-xl bg-night-950/80 border border-slate-800/80';
+
+          const avatarWrap = document.createElement('div');
+          avatarWrap.className = 'relative w-9 h-9 shrink-0';
+
+          const img = document.createElement('img');
+          img.src = member.avatar_url || '';
+          img.alt = member.username || 'Üye';
+          img.referrerPolicy = 'no-referrer';
+          img.className = 'w-9 h-9 rounded-full object-cover bg-night-850 border border-slate-700/70';
+          img.onerror = function () {
+            this.style.display = 'none';
+          };
+
+          const statusDot = document.createElement('span');
+          statusDot.className = `absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full border-2 border-night-950 ${
+            statusColors[member.status] || 'bg-slate-400'
+          }`;
+
+          avatarWrap.appendChild(img);
+          avatarWrap.appendChild(statusDot);
+
+          const info = document.createElement('div');
+          info.className = 'min-w-0 flex-1';
+
+          const uname = document.createElement('div');
+          uname.className = 'text-sm font-medium text-white truncate';
+          uname.textContent = member.username || 'Topluluk Üyesi';
+
+          const activity = document.createElement('div');
+          activity.className = 'text-xs text-slate-400 truncate';
+          activity.textContent = member.game?.name ? `Oynuyor: ${member.game.name}` : 'Çevrimiçi';
+
+          info.appendChild(uname);
+          info.appendChild(activity);
+
+          item.appendChild(avatarWrap);
+          item.appendChild(info);
+          container.appendChild(item);
+        });
+      }
+
+      function renderDiscordWidgetFallback() {
+        updateOnlineCounters('Aktif');
+
+        const nameEl = document.getElementById('widget-server-name');
+        const statusEl = document.getElementById('widget-status-text');
+        const channelEl = document.getElementById('widget-channel-count');
+        const subtitleEl = document.getElementById('widget-members-subtitle');
+        const container = document.getElementById('widget-members-container');
+
+        if (nameEl) nameEl.textContent = CONFIG.SERVER_NAME;
+        if (statusEl) statusEl.textContent = 'Topluluk Sunucusu · 7/24 Açık';
+        if (channelEl) channelEl.textContent = '12+';
+        if (subtitleEl) subtitleEl.textContent = 'Yönetim';
+
+        if (!container) return;
+        const defaultShowcase = [
+          { name: 'VREX', role: 'Kurucu · Yönetim', color: 'from-neon-gold to-amber-500' },
+        ];
+
+        container.innerHTML = '';
+        defaultShowcase.forEach((entry) => {
+          const card = document.createElement('div');
+          card.className =
+            'sm:col-span-2 flex items-center gap-3 p-3.5 rounded-xl bg-night-950/80 border border-neon-gold/30';
+          card.innerHTML = `
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br ${entry.color} flex items-center justify-center text-xs font-mono font-bold text-night-950 shrink-0 shadow-[0_0_16px_rgba(251,191,36,0.3)]">
+              ${entry.name.slice(0, 2).toUpperCase()}
+            </div>
+            <div class="min-w-0">
+              <div class="text-sm font-semibold text-white truncate">${entry.name}</div>
+              <div class="text-xs text-slate-400 truncate">${entry.role}</div>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      }
+
+      function updateOnlineCounters(val) {
+        const navCount = document.getElementById('nav-online-count');
+        const mobileCount = document.getElementById('mobile-online-count');
+        const heroStat = document.getElementById('hero-online-stat');
+        const widgetOnline = document.getElementById('widget-online-count');
+
+        if (navCount) navCount.textContent = val;
+        if (mobileCount) mobileCount.textContent = val === 'Aktif' ? 'Aktif Sunucu' : `${val} Üye`;
+        if (heroStat) heroStat.textContent = val;
+        if (widgetOnline) widgetOnline.textContent = val;
+      }
+
+      document.getElementById('refresh-widget-btn')?.addEventListener('click', fetchDiscordWidget);
+
+      // =========================================================================
+      // PORTAL TABS & SCROLL SHORTCUT
+      // =========================================================================
+      let activeTab = 'staff';
+
+      function switchTab(tabName) {
+        activeTab = tabName;
+        const tabStaff = document.getElementById('tab-staff');
+        const tabPartner = document.getElementById('tab-partner');
+        const staffForm = document.getElementById('staff-form');
+        const partnerForm = document.getElementById('partner-form');
+
+        const activeClasses = [
+          'bg-gradient-to-r',
+          'from-neon-purple',
+          'to-neon-ice',
+          'text-white',
+          'shadow-[0_0_20px_rgba(139,92,246,0.35)]',
+        ];
+        const inactiveClasses = ['text-slate-400', 'hover:text-white', 'hover:bg-night-900'];
+
+        if (tabName === 'staff') {
+          tabStaff.classList.add(...activeClasses);
+          tabStaff.classList.remove(...inactiveClasses);
+          tabStaff.setAttribute('aria-selected', 'true');
+
+          tabPartner.classList.remove(...activeClasses);
+          tabPartner.classList.add(...inactiveClasses);
+          tabPartner.setAttribute('aria-selected', 'false');
+
+          staffForm.classList.remove('hidden');
+          partnerForm.classList.add('hidden');
+        } else {
+          tabPartner.classList.add(...activeClasses);
+          tabPartner.classList.remove(...inactiveClasses);
+          tabPartner.setAttribute('aria-selected', 'true');
+
+          tabStaff.classList.remove(...activeClasses);
+          tabStaff.classList.add(...inactiveClasses);
+          tabStaff.setAttribute('aria-selected', 'false');
+
+          partnerForm.classList.remove('hidden');
+          staffForm.classList.add('hidden');
+        }
+      }
+
+      function initTabs() {
+        document.getElementById('tab-staff')?.addEventListener('click', () => switchTab('staff'));
+        document.getElementById('tab-partner')?.addEventListener('click', () => switchTab('partner'));
+
+        document.getElementById('go-partner-form-btn')?.addEventListener('click', () => {
+          switchTab('partner');
+          document.getElementById('basvuru')?.scrollIntoView({ behavior: 'smooth' });
+        });
+      }
+
+      // =========================================================================
+      // 60-SECOND ANTI-SPAM COOLDOWN & DISCORD WEBHOOK SUBMISSION
+      // =========================================================================
+      const COOLDOWN_KEY = 'r44x_portal_cooldown_until';
+      let cooldownInterval = null;
+
+      function getRemainingCooldown() {
+        try {
+          const until = Number(localStorage.getItem(COOLDOWN_KEY) || '0');
+          const diff = Math.ceil((until - Date.now()) / 1000);
+          return diff > 0 ? diff : 0;
+        } catch {
+          return 0;
+        }
+      }
+
+      function startCooldown(seconds = CONFIG.COOLDOWN_SECONDS) {
+        try {
+          localStorage.setItem(COOLDOWN_KEY, String(Date.now() + seconds * 1000));
+        } catch {
+          // Ignore storage error in restricted contexts
+        }
+        updateCooldownUI();
+      }
+
+      function initCooldownState() {
+        updateCooldownUI();
+      }
+
+      function updateCooldownUI() {
+        if (cooldownInterval) clearInterval(cooldownInterval);
+
+        const tick = () => {
+          const remaining = getRemainingCooldown();
+          const staffBtn = document.getElementById('staff-submit-btn');
+          const partnerBtn = document.getElementById('partner-submit-btn');
+          const staffLabel = document.getElementById('staff-submit-label');
+          const partnerLabel = document.getElementById('partner-submit-label');
+
+          if (remaining > 0) {
+            if (staffBtn) staffBtn.disabled = true;
+            if (partnerBtn) partnerBtn.disabled = true;
+            if (staffLabel) staffLabel.textContent = `Spam koruması: ${remaining} saniye bekleyin`;
+            if (partnerLabel) partnerLabel.textContent = `Spam koruması: ${remaining} saniye bekleyin`;
+          } else {
+            if (staffBtn) staffBtn.disabled = false;
+            if (partnerBtn) partnerBtn.disabled = false;
+            if (staffLabel) staffLabel.textContent = 'Yetkili Başvurusunu Gönder';
+            if (partnerLabel) partnerLabel.textContent = 'Partnerlik Başvurusunu Gönder';
+            if (cooldownInterval) {
+              clearInterval(cooldownInterval);
+              cooldownInterval = null;
+            }
+          }
+        };
+
+        tick();
+        if (getRemainingCooldown() > 0) {
+          cooldownInterval = setInterval(tick, 1000);
+        }
+      }
+
+      function showNotification(type, title, desc) {
+        const box = document.getElementById('form-notification');
+        const icon = document.getElementById('form-notification-icon');
+        const titleEl = document.getElementById('form-notification-title');
+        const descEl = document.getElementById('form-notification-desc');
+        if (!box || !titleEl || !descEl) return;
+
+        box.classList.remove(
+          'hidden',
+          'bg-emerald-950/60',
+          'border-emerald-500/40',
+          'text-emerald-200',
+          'bg-rose-950/60',
+          'border-rose-500/40',
+          'text-rose-200'
+        );
+
+        if (type === 'success') {
+          box.classList.add('bg-emerald-950/60', 'border-emerald-500/40', 'text-emerald-200');
+          if (icon) icon.setAttribute('data-lucide', 'check-circle-2');
+        } else {
+          box.classList.add('bg-rose-950/60', 'border-rose-500/40', 'text-rose-200');
+          if (icon) icon.setAttribute('data-lucide', 'alert-circle');
+        }
+
+        titleEl.textContent = title;
+        descEl.textContent = desc;
+        if (window.lucide) lucide.createIcons();
+        box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      function sanitizeFieldValue(val) {
+        const trimmed = String(val || '').trim();
+        if (!trimmed) return '-';
+        return trimmed.length > 1020 ? trimmed.slice(0, 1020) + '...' : trimmed;
+      }
+
+      function initForms() {
+        const staffForm = document.getElementById('staff-form');
+        const partnerForm = document.getElementById('partner-form');
+
+        // STAFF FORM SUBMIT
+        staffForm?.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          if (getRemainingCooldown() > 0) return;
+
+          if (!staffForm.checkValidity()) {
+            staffForm.reportValidity();
+            showNotification(
+              'error',
+              'Eksik veya Hatalı Alanlar Var',
+              'Lütfen yetkili başvuru formundaki tüm zorunlu soruları eksiksiz doldurun.'
+            );
+            return;
+          }
+
+          const payload = {
+            content: `${CONFIG.FOUNDER_MENTION} Yeni bir **R44X YETKİLİ EKİBİ ALIMLARI** başvurusu geldi!`,
+            embeds: [
+              {
+                title: 'R44X YETKİLİ EKİBİ ALIMLARI',
+                color: 0x8b5cf6,
+                fields: [
+                  {
+                    name: '1. İsim (Gerçek İsim)',
+                    value: sanitizeFieldValue(document.getElementById('staff-name').value),
+                    inline: false,
+                  },
+                  {
+                    name: '2. Discord ADIN @ ?',
+                    value: sanitizeFieldValue(document.getElementById('staff-discord').value),
+                    inline: false,
+                  },
+                  {
+                    name: '3. Yaş',
+                    value: sanitizeFieldValue(document.getElementById('staff-age').value),
+                    inline: true,
+                  },
+                  {
+                    name: '4. Günlük Kaç Saat Aktifliğin Var ?',
+                    value: sanitizeFieldValue(document.getElementById('staff-daily-active').value),
+                    inline: true,
+                  },
+                  {
+                    name: '5. Sunucuya Kaç Saat Ayırabilirsin ?',
+                    value: sanitizeFieldValue(document.getElementById('staff-server-hours').value),
+                    inline: true,
+                  },
+                  {
+                    name: '6. Discordu Ne Zamandır Kullanıyorsun ?',
+                    value: sanitizeFieldValue(document.getElementById('staff-discord-since').value),
+                    inline: false,
+                  },
+                  {
+                    name: '7. Ne için Yetkili Olmak istiyorsun ?',
+                    value: sanitizeFieldValue(document.getElementById('staff-why').value),
+                    inline: false,
+                  },
+                  {
+                    name: '8. Bizden Ne Gibi Rol bekliyorsun ?',
+                    value: sanitizeFieldValue(document.getElementById('staff-expected-role').value),
+                    inline: false,
+                  },
+                  {
+                    name: '9. İstediğin Rol Nedir ?',
+                    value: sanitizeFieldValue(document.getElementById('staff-desired-role').value),
+                    inline: false,
+                  },
+                ],
+                footer: {
+                  text: `${CONFIG.SERVER_NAME} Topluluk & Başvuru Portalı`,
+                },
+                timestamp: new Date().toISOString(),
+              },
+            ],
+          };
+
+          await submitWebhook(
+            CONFIG.STAFF_WEBHOOK_URL,
+            payload,
+            staffForm,
+            'staff-submit-btn',
+            'staff-submit-label',
+            'Yetkili Başvurusunu Gönder',
+            'Yetkili Başvurunuz Alındı!',
+            'Başvurunuz başarıyla R44X yönetimine iletildi. Değerlendirme sonrası Discord üzerinden sizinle iletişime geçilecektir.'
+          );
+        });
+
+        // PARTNER FORM SUBMIT
+        partnerForm?.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          if (getRemainingCooldown() > 0) return;
+
+          if (!partnerForm.checkValidity()) {
+            partnerForm.reportValidity();
+            showNotification(
+              'error',
+              'Eksik veya Hatalı Alanlar Var',
+              'Lütfen partnerlik başvuru formundaki tüm zorunlu alanları geçerli bilgilerle doldurun.'
+            );
+            return;
+          }
+
+          const payload = {
+            content: `${CONFIG.FOUNDER_MENTION} Yeni bir **Partnerlik Başvurusu** geldi!`,
+            embeds: [
+              {
+                title: 'Partnerlik Başvurusu',
+                color: 0x38bdf8,
+                fields: [
+                  {
+                    name: 'Discord Kullanıcı Adı',
+                    value: sanitizeFieldValue(document.getElementById('partner-discord').value),
+                    inline: true,
+                  },
+                  {
+                    name: 'Sunucu Adı',
+                    value: sanitizeFieldValue(document.getElementById('partner-server-name').value),
+                    inline: true,
+                  },
+                  {
+                    name: 'Sunucu Üye Sayısı',
+                    value: sanitizeFieldValue(document.getElementById('partner-member-count').value),
+                    inline: true,
+                  },
+                  {
+                    name: 'Sunucu Davet Linki',
+                    value: sanitizeFieldValue(document.getElementById('partner-invite').value),
+                    inline: false,
+                  },
+                  {
+                    name: 'Kısa Sunucu Tanıtımı',
+                    value: sanitizeFieldValue(document.getElementById('partner-description').value),
+                    inline: false,
+                  },
+                ],
+                footer: {
+                  text: `${CONFIG.SERVER_NAME} Topluluk & Başvuru Portalı`,
+                },
+                timestamp: new Date().toISOString(),
+              },
+            ],
+          };
+
+          await submitWebhook(
+            CONFIG.PARTNER_WEBHOOK_URL,
+            payload,
+            partnerForm,
+            'partner-submit-btn',
+            'partner-submit-label',
+            'Partnerlik Başvurusunu Gönder',
+            'Partnerlik Başvurunuz Alındı!',
+            'Sunucu tanıtımınız ve partnerlik talebiniz başarıyla R44X yönetimine ulaştırıldı.'
+          );
+        });
+      }
+
+      async function submitWebhook(
+        webhookUrl,
+        payload,
+        formEl,
+        btnId,
+        labelId,
+        defaultLabel,
+        successTitle,
+        successDesc
+      ) {
+        const btn = document.getElementById(btnId);
+        const label = document.getElementById(labelId);
+
+        if (btn) btn.disabled = true;
+        if (label) label.textContent = 'Gönderiliyor...';
+
+        try {
+          const response = await fetch(webhookUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload),
+          });
+
+          if (!response.ok) {
+            throw new Error(`Webhook yanıt kodu: ${response.status}`);
+          }
+
+          formEl.reset();
+          showNotification('success', successTitle, successDesc);
+          startCooldown(CONFIG.COOLDOWN_SECONDS);
+        } catch (err) {
+          showNotification(
+            'error',
+            'Gönderim Sırasında Bir Hata Oluştu',
+            'Discord Webhook bağlantısına ulaşılamadı veya istek reddedildi. Lütfen bağlantınızı kontrol edip tekrar deneyin.'
+          );
+          if (btn) btn.disabled = false;
+          if (label) label.textContent = defaultLabel;
+        }
+      }
+    </script>
+  </body>
+</html>
